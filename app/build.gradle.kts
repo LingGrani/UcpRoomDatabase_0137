@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.p9database"
+    namespace = "com.example.ucp2"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.p9database"
+        applicationId = "com.example.ucp2"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
