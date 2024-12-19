@@ -25,7 +25,6 @@ class MainActivity : ComponentActivity() {
                 PengelolaHalaman(
                     isDarkTheme = isDarkTheme,
                     onThemeChange = { isDarkTheme = it },
-                    check = isDarkTheme.toString()
                 )
             }
         }
