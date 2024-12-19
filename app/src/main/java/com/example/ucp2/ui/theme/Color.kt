@@ -9,5 +9,7 @@ val mainRight = Color(0xFF514689)
 val mainRightLight = Color(0xFF5A53C9)
 val mainLeft = Color(0xFF468988)
 val mainLeftLight = Color(0xFF53B4C9)
+val white = Color(0xFFA9B1CB)
+val black = Color(0xFF141F3E)
 //Gradient
 val mainGradient = Brush.horizontalGradient(listOf(biruMain, biruMainLight))
