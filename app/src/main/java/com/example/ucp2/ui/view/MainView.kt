@@ -1,6 +1,7 @@
 package com.example.ucp2.ui.view
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -30,15 +31,18 @@ import com.example.ucp2.ui.widget.TopAppBar
 fun MainView(
     isDarkTheme: Boolean,
     onThemeChange: (Boolean) -> Unit,
+    onItemClick: (String) -> Unit
 ){
     val menuItems = listOf(
         MenuItem(
             text = "Dosen",
-            painter = painterResource(id = R.drawable.lecture)
+            painter = painterResource(id = R.drawable.lecture),
+            route = "Dosen"
         ),
         MenuItem(
             text = "Matakuliah",
-            painter = painterResource(id = R.drawable.book)
+            painter = painterResource(id = R.drawable.book),
+            route = "Matakuliah"
         )
     )
     Scaffold(
@@ -63,6 +67,9 @@ fun MainView(
                 MainIcon(
                     painter = menuItem.painter,
                     text = menuItem.text,
+                    click = {
+                        onItemClick(menuItem.route)
+                    }
                 )
             }
         }
@@ -75,6 +82,7 @@ fun MainIcon(
     painter: Painter,
     modifier: Modifier = Modifier,
     text: String = "",
+    click: () -> Unit = {}
 ) {
     Row (
         verticalAlignment = Alignment.CenterVertically,
@@ -83,6 +91,9 @@ fun MainIcon(
             .padding(start = 30.dp, end = 30.dp, top = 16.dp, bottom = 16.dp)
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(24.dp))
+            .clickable {
+                click()
+            }
             .padding(16.dp)
     ){
         Box (
@@ -109,4 +120,5 @@ fun MainIcon(
 data class MenuItem(
     val text: String,
     val painter: Painter,
+    val route: String
 )
