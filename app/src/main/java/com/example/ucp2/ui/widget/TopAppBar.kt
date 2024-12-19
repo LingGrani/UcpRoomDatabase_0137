@@ -18,13 +18,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ucp2.R
 
 @Composable
-fun CustomTopAppBar(
+fun TopAppBar(
     isDarkTheme: Boolean,
     showBackButton: Boolean = true,
     onThemeChange: (Boolean) -> Unit,
@@ -77,7 +79,7 @@ fun CustomTopAppBar(
                 if (isDarkTheme) {
                     {
                         Icon(
-                            imageVector = Icons.Filled.Email,
+                            painter = painterResource(R.drawable.dark),
                             contentDescription = null,
                             modifier = Modifier.size(SwitchDefaults.IconSize),
                         )
@@ -85,7 +87,7 @@ fun CustomTopAppBar(
                 } else {
                     {
                         Icon(
-                            imageVector = Icons.Filled.Notifications,
+                            painter = painterResource(R.drawable.light),
                             contentDescription = null,
                             modifier = Modifier.size(SwitchDefaults.IconSize),
                         )
