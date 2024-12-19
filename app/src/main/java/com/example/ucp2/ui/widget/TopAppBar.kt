@@ -6,11 +6,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,9 +24,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TopAppBar(
-    onBack: () -> Unit,
+fun CustomTopAppBar(
+    isDarkTheme: Boolean,
     showBackButton: Boolean = true,
+    onThemeChange: (Boolean) -> Unit,
+    onBack: () -> Unit,
     judul: String,
 ) {
     Row (
@@ -60,6 +65,34 @@ fun TopAppBar(
                 fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.primary
+            )
+        }
+        Box (
+                modifier = Modifier.weight(0.1f)
+                ){
+            Switch(
+                checked = isDarkTheme,
+                onCheckedChange = onThemeChange,
+                thumbContent =
+                if (isDarkTheme) {
+                    {
+                        Icon(
+                            imageVector = Icons.Filled.Email,
+                            contentDescription = null,
+                            modifier = Modifier.size(SwitchDefaults.IconSize),
+                        )
+                    }
+                } else {
+                    {
+                        Icon(
+                            imageVector = Icons.Filled.Notifications,
+                            contentDescription = null,
+                            modifier = Modifier.size(SwitchDefaults.IconSize),
+                        )
+                    }
+                },
+                colors = SwitchDefaults.colors(
+                )
             )
         }
     }
