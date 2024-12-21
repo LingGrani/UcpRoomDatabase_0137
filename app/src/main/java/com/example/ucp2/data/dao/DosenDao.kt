@@ -16,4 +16,6 @@ interface DosenDao {
     suspend fun insertDosen(
         dosen: Dosen
     )
+    @Query("SELECT COUNT(*) > 0 FROM dosen WHERE nidn = :nidn")
+    fun checkNidnExists(nidn: String): Boolean
 }

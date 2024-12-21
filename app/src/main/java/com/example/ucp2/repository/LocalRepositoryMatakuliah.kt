@@ -24,4 +24,7 @@ class LocalRepositoryMatakuliah (
     override suspend fun updateMatakuliah(matakuliah: Matakuliah) {
         matakuliahDao.updateMatakuliah(matakuliah)
     }
+    override fun checkKodeExists(nidn: String): Boolean {
+        return matakuliahDao.checkKodeExists(nidn)
+    }
 }

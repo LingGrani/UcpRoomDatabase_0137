@@ -9,4 +9,5 @@ interface RepositoryMatakuliah {
     fun getMatakuliah(kode: String): Flow<Matakuliah>
     suspend fun deleteMatakuliah(matakuliah: Matakuliah)
     suspend fun updateMatakuliah(matakuliah: Matakuliah)
+    fun checkKodeExists(nidn: String): Boolean
 }

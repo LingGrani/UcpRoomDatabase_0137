@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface RepositoryDosen {
     fun getAllDosen(): Flow<List<Dosen>>
     suspend fun insertDosen(dosen: Dosen)
+    fun checkNidnExists(nidn: String): Boolean
 }

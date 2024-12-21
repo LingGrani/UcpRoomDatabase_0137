@@ -26,4 +26,6 @@ interface MatakuliahDao {
     suspend fun updateMatakuliah(
         matakuliah: Matakuliah
     )
+    @Query("SELECT COUNT(*) > 0 FROM matakuliah WHERE kode = :kode")
+    fun checkKodeExists(kode: String): Boolean
 }
