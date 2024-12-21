@@ -7,7 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.ucp2.ui.view.MainView
+import com.example.ucp2.ui.view.dosen.AddDosenView
 import com.example.ucp2.ui.view.dosen.HomeDosenView
+import com.example.ucp2.ui.view.matakuliah.HomeMatakuliah
 
 @Composable
 fun PengelolaHalaman(
@@ -41,13 +43,33 @@ fun PengelolaHalaman(
                     navController.popBackStack()
                 },
                 add = {
+                    navController.navigate(AddDosenNavigasi.route)
                 }
             )
         }
         composable(
             route = MatakuliahNavigasi.route
         ){
-
+            HomeMatakuliah(
+                isDarkTheme = isDarkTheme,
+                onThemeChange = onThemeChange,
+                onBack = {
+                    navController.popBackStack()
+                },
+                add = {
+                }
+            )
+        }
+        composable(
+            route = AddDosenNavigasi.route
+        ){
+            AddDosenView(
+                isDarkTheme = isDarkTheme,
+                onThemeChange = onThemeChange,
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
         }
     }
 }

@@ -13,4 +13,7 @@ class LocalRepositoryDosen (
     override suspend fun insertDosen(dosen: Dosen) {
         dosenDao.insertDosen(dosen)
     }
+    override fun checkNidnExists(nidn: String): Boolean {
+        return dosenDao.checkNidnExists(nidn)
+    }
 }
